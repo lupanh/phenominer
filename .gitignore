@@ -9,6 +9,7 @@ docs/
 bin/
 corpus/
 temp/
+test/
 *.txt
 *.model
 # Package Files #
