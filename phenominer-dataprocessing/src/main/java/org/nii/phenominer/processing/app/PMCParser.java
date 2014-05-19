@@ -31,9 +31,10 @@ public class PMCParser {
 	}
 
 	static void extract(String inputFile, String outputFile) throws Exception {
-		PMCArticle pa = new PMCArticle(inputFile);
+		PMCArticle pa = new PMCArticle(inputFile);		
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-				outputFile + ".txt")));
+				outputFile.substring(0, outputFile.lastIndexOf(File.separator)) + "/"
+						+ pa.getPmcId() + ".txt")));
 		String title = pa.getTitle();
 		if (!title.equals("No Title Found"))
 			writer.write(title + "\n");
