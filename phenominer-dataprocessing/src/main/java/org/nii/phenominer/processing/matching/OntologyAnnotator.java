@@ -41,9 +41,13 @@ public class OntologyAnnotator {
 		OBOFormatParser p = new OBOFormatParser();
 		OBODoc obodoc = p.parse(oboFile);
 		for (Frame frame : obodoc.getTermFrames()) {
+			if (frame.getTagValue(OboFormatTag.TAG_NAME).toString().length() < 4)
+				continue;
 			terms.put(frame.getTagValue(OboFormatTag.TAG_NAME).toString().toLowerCase(), prefix
 					+ "|" + frame.getId());
 			for (Clause syn : frame.getClauses(OboFormatTag.TAG_SYNONYM)) {
+				if (syn.getValue().toString().length() < 4)
+					continue;
 				terms.put(syn.getValue().toString().toLowerCase(), prefix + "|" + frame.getId());
 			}
 		}
