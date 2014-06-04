@@ -12,7 +12,6 @@ temp/
 test/
 phenominer-dataprocessing/data/trainset
 *.txt
-*.model
 # Package Files #
 *.war
 *.ear
