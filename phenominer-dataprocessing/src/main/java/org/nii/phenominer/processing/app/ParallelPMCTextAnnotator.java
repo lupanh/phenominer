@@ -1,6 +1,7 @@
 package org.nii.phenominer.processing.app;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -25,6 +26,7 @@ import org.nii.phenominer.processing.bean.Text;
 import org.nii.phenominer.processing.matching.BioSpan;
 import org.nii.phenominer.processing.matching.OntologyAnnotator;
 import org.nii.phenominer.processing.nlp.tokenizer.Tokenizer;
+import org.nii.phenominer.processing.util.FileHelper;
 
 import com.cedarsoftware.util.io.JsonWriter;
 import com.thoughtworks.xstream.XStream;
@@ -177,10 +179,13 @@ public class ParallelPMCTextAnnotator {
 
 						if (outputFormat.equals("json")) {
 							String json = serializer.serialize(documents).toString();
-							IO.write(dest.toString() + ".json", JsonWriter.formatJson(json));
+							FileHelper.writeToFile(JsonWriter.formatJson(json),
+									new File(dest.toString() + ".json"),
+									Charset.forName("ISO-8859-1"));
 						} else if (outputFormat.equals("xml")) {
 							String xml = xstream.toXML(documents);
-							IO.write(dest.toString() + ".xml", xml);
+							FileHelper.writeToFile(xml, new File(dest.toString() + ".xml"),
+									Charset.forName("ISO-8859-1"));
 						}
 
 						return src.toString();
