@@ -11,6 +11,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.GnuParser;
@@ -115,7 +116,7 @@ public class ParallelPMCTextAnnotator {
 			List<Future<String>> results = executor.invokeAll(tasks);
 			System.out.println("===");
 			for (Future<String> result : results)
-				System.out.println(result.get());
+				System.out.println(result.get(3000, TimeUnit.MILLISECONDS));
 			executor.shutdown();
 
 		} catch (ParseException e) {
