@@ -199,7 +199,7 @@ public class BllipParserServer {
 
 	public static void main(String args[]) {
 		BllipParserServer server = new BllipParserServer("/home/bllip-parser",
-				"/home/bllip-parser/biomodel",
+				"/home/bllip-parser/biomodel/parser",
 				"/home/bllip-parser/biomodel/reranker");
 		Scanner in = new Scanner(System.in);
 		String line;
