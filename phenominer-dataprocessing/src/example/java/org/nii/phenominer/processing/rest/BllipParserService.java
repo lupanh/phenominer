@@ -6,11 +6,12 @@ import org.restlet.resource.ServerResource;
 
 public class BllipParserService extends ServerResource {
 	String text;
-	BllipParserServer server = new BllipParserServer("/home/bllip-parser",
-			"/home/bllip-parser/biomodel/parser", "/home/bllip-parser/biomodel/reranker");
+	BllipParserServer server;
 
 	@Override
 	public void doInit() {
+		server = new BllipParserServer("/home/bllip-parser",
+				"/home/bllip-parser/biomodel/parser", "/home/bllip-parser/biomodel/reranker");
 		this.text = (String) getRequestAttributes().get("text");
 	}
 
