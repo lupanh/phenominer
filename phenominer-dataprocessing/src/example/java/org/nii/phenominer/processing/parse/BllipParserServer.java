@@ -18,10 +18,6 @@ import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeFactory;
 import edu.stanford.nlp.trees.TreeReader;
 
-/**
- * 
- * @author mibnfaiz
- */
 public class BllipParserServer {
 	private String bllipHome;
 	private Process parser;
@@ -33,7 +29,6 @@ public class BllipParserServer {
 	PrintWriter parserWriter;
 	PrintWriter rerankerWriter;
 	boolean running;
-	private BufferedReader parserErrorReader;
 	private List<String> parserArgumentList;
 	private boolean tokenize;
 	private final int maxAttempt = 2;
@@ -65,8 +60,6 @@ public class BllipParserServer {
 	}
 
 	private boolean runServer() {
-		// String parserArgument[] = new
-		// String[]{bllipHome+"/first-stage/PARSE/parseIt",firstStageModelPath, "-K", "-N50", "-l399", "-t4"};
 		String parserArgument[] = new String[parserArgumentList.size()];
 		System.out.println(parserArgumentList);
 		parserArgument = parserArgumentList.toArray(parserArgument);
@@ -82,7 +75,6 @@ public class BllipParserServer {
 			reranker = Runtime.getRuntime().exec(rerankerArgument, null, null);
 			rerankerReader = new BufferedReader(new InputStreamReader(reranker.getInputStream()));
 			rerankerWriter = new PrintWriter(new OutputStreamWriter(reranker.getOutputStream()));
-			parserErrorReader = new BufferedReader(new InputStreamReader(parser.getErrorStream()));
 
 			System.out.println("BLLIP parser is now loading...");
 			Thread.sleep(20000);
@@ -109,38 +101,12 @@ public class BllipParserServer {
 		if (!running) {
 			return null;
 		}
-		// try {
 
 		String text = "<s> " + sentence + " </s>";
-		// probably there is a bug in bllip parser if -K is not given
-		// I found this workaround of adding .\n
 		if (tokenize)
 			text += "\n.";
 		parserWriter.write(text + "\n");
 		parserWriter.flush();
-
-		// StringBuilder sb = new StringBuilder();
-		// String line = "";
-		/*
-		 * while ((line = parserErrorReader.readLine()) != null) {
-		 * System.out.println(line); }
-		 */
-		// while (!parserReader.ready());
-		/*
-		 * while ((line = parserReader.readLine()) != null) {
-		 * //System.out.println(line); sb.append(line).append("\n"); if
-		 * (line.equals("")) break; }
-		 */
-
-		// System.out.println(":"+sb.toString());
-
-		/*
-		 * rerankerWriter.write(sb.toString()); rerankerWriter.flush();
-		 * 
-		 * line = rerankerReader.readLine();
-		 */
-		// System.out.println(line);
-		// rerankerReader.readLine();
 
 		String output = "";
 		Worker worker = new Worker(parserReader, true, "");
@@ -190,17 +156,11 @@ public class BllipParserServer {
 		}
 
 		return output;
-		/*
-		 * } catch (IOException ex) {
-		 * Logger.getLogger(BLLIPServer.class.getName()).log(Level.SEVERE, null,
-		 * ex); return null; }
-		 */
 	}
 
 	public static void main(String args[]) {
 		BllipParserServer server = new BllipParserServer("/home/bllip-parser",
-				"/home/bllip-parser/biomodel/parser",
-				"/home/bllip-parser/biomodel/reranker");
+				"/home/bllip-parser/biomodel/parser", "/home/bllip-parser/biomodel/reranker");
 		Scanner in = new Scanner(System.in);
 		String line;
 		TreeFactory tf = new LabeledScoredTreeFactory();
@@ -221,12 +181,6 @@ public class BllipParserServer {
 	}
 }
 
-/**
- * An <code>Worker</code> object reads lines from a <code>BufferedReader</code>.
- * The purpose of this class is to impose a timeout on the readline method.
- * 
- * @author mibnfaiz
- */
 class Worker extends Thread {
 	BufferedReader reader;
 	boolean multiLine;
@@ -266,5 +220,4 @@ class Worker extends Thread {
 	public String getOutput() {
 		return output;
 	}
-
 }
