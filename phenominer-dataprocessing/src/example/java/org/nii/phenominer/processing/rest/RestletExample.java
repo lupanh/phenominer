@@ -1,5 +1,7 @@
 package org.nii.phenominer.processing.rest;
 
+import java.io.UnsupportedEncodingException;
+
 import org.nii.phenominer.processing.parse.BllipParserServer;
 import org.restlet.Application;
 import org.restlet.Component;
@@ -31,12 +33,18 @@ public class RestletExample extends Application {
 		Restlet bllip = new Restlet() {
 			@Override
 			public void handle(Request request, Response response) {
-				String message = server.parse((String) request.getAttributes().get("text"));
+				String message;
+				try {
+					message = server.parse(java.net.URLDecoder.decode((String) request
+							.getAttributes().get("bllip"), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					message = "";
+				}
 				response.setEntity(message, MediaType.TEXT_PLAIN);
 			}
 		};
 
-		router.attach("/bllip={text}", bllip);
+		router.attach("/bllip={bllip}", bllip);
 
 		return router;
 	}
