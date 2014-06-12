@@ -21,7 +21,7 @@ public class RestletExample extends Application {
 	public Restlet createInboundRoot() {
 		Router router = new Router(getContext());
 		
-		router.attach("/bllip?text={text}", BllipParserService.class);
+		router.attach("/bllip={text}", BllipParserService.class);
 
 		return router;
 	}
