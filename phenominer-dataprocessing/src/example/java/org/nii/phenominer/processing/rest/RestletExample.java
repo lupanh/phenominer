@@ -1,12 +1,19 @@
 package org.nii.phenominer.processing.rest;
 
+import org.nii.phenominer.processing.parse.BllipParserServer;
 import org.restlet.Application;
 import org.restlet.Component;
+import org.restlet.Request;
 import org.restlet.Restlet;
+import org.restlet.data.MediaType;
 import org.restlet.data.Protocol;
 import org.restlet.routing.Router;
+import org.restlet.Response;
 
 public class RestletExample extends Application {
+	BllipParserServer server = new BllipParserServer("/home/bllip-parser",
+			"/home/bllip-parser/biomodel/parser", "/home/bllip-parser/biomodel/reranker");
+
 	public static void main(String[] args) throws Exception {
 		Component component = new Component();
 		component.getServers().add(Protocol.HTTP, 8111);
@@ -20,8 +27,16 @@ public class RestletExample extends Application {
 	@Override
 	public Restlet createInboundRoot() {
 		Router router = new Router(getContext());
-		
-		router.attach("/bllip={text}", BllipParserService.class);
+
+		Restlet bllip = new Restlet() {
+			@Override
+			public void handle(Request request, Response response) {
+				String message = server.parse((String) request.getAttributes().get("text"));
+				response.setEntity(message, MediaType.TEXT_PLAIN);
+			}
+		};
+
+		router.attach("/bllip={text}", bllip);
 
 		return router;
 	}
