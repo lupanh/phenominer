@@ -42,11 +42,13 @@ public class NLPToolsWebService extends Application {
 
 			Option f1ModelPath = new Option("f", "firstStageModel", true,
 					"Bllip first stage model path");
+			f1ModelPath.setRequired(true);
 			f1ModelPath.setArgName("path");
 			options.addOption(f1ModelPath);
 
 			Option f2ModelPath = new Option("s", "secondStageModel", true,
 					"Bllip second stage model path");
+			f2ModelPath.setRequired(true);
 			f2ModelPath.setArgName("path");
 			options.addOption(f2ModelPath);
 
@@ -122,7 +124,7 @@ public class NLPToolsWebService extends Application {
 				String message;
 				try {
 					boolean isTokenized = Boolean.parseBoolean((String) request.getAttributes()
-							.get("tokenized"));
+							.get("tokenize"));
 					String text = java.net.URLDecoder.decode(
 							(String) request.getAttributes().get("text"), "UTF-8");
 					if (isTokenized)
@@ -141,7 +143,7 @@ public class NLPToolsWebService extends Application {
 				String message;
 				try {
 					boolean isTokenized = Boolean.parseBoolean((String) request.getAttributes()
-							.get("tokenized"));
+							.get("tokenize"));
 					String text = java.net.URLDecoder.decode(
 							(String) request.getAttributes().get("text"), "UTF-8");
 					if (isTokenized)
@@ -161,7 +163,7 @@ public class NLPToolsWebService extends Application {
 				String message;
 				try {
 					boolean isTokenized = Boolean.parseBoolean((String) request.getAttributes()
-							.get("tokenized"));
+							.get("tokenize"));
 					String text = java.net.URLDecoder.decode(
 							(String) request.getAttributes().get("text"), "UTF-8");
 					String[] tokens;
@@ -179,9 +181,9 @@ public class NLPToolsWebService extends Application {
 			}
 		};
 
-		router.attach("/bllip={text}/tokenized={tokenized}", bllip);
-		router.attach("/genia={text}/tokenized={tokenized}", jenia);
-		router.attach("/annotator={text}/tokenized={tokenized}", annotator);
+		router.attach("/bllip={text}/tokenize={tokenize}", bllip);
+		router.attach("/genia={text}/tokenize={tokenize}", jenia);
+		router.attach("/annotator={text}/tokenize={tokenize}", annotator);
 
 		return router;
 	}
