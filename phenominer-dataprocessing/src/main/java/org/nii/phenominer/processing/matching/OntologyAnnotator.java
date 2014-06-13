@@ -31,10 +31,18 @@ import edu.stanford.nlp.util.StringUtils;
 
 public class OntologyAnnotator {
 	List<LongestMatching> matchers = new ArrayList<LongestMatching>();
-	JsonSerializer serializer = new JsonSerializerFactory().create();
-	XStream xstream = new XStream();
+	JsonSerializer serializer;
+	XStream xstream;
 
+	void init() {
+		xstream = new XStream();
+		xstream.alias("document", Text.class);
+		xstream.alias("annotation", Annotation.class);
+		serializer = new JsonSerializerFactory().create();
+	}
+	
 	public OntologyAnnotator(String optFile) throws Exception {
+		init();
 		loadOptionFile(optFile);
 	}
 
@@ -157,10 +165,7 @@ public class OntologyAnnotator {
 	}
 
 	public String annotateXML(String text, String tokens[], boolean isTokenized) throws Exception {
-		Text doc = annotate(text, tokens, isTokenized);
-
-		xstream.alias("document", Text.class);
-		xstream.alias("annotation", Annotation.class);
+		Text doc = annotate(text, tokens, isTokenized);		
 		return xstream.toXML(doc);
 	}
 

@@ -181,9 +181,9 @@ public class NLPToolsWebService extends Application {
 			}
 		};
 
-		router.attach("/bllip={text}/tokenize={tokenize}", bllip);
-		router.attach("/genia={text}/tokenize={tokenize}", jenia);
-		router.attach("/annotator={text}/tokenize={tokenize}", annotator);
+		router.attach("/bllip={text}/tokenized={tokenize}", bllip);
+		router.attach("/genia={text}/tokenized={tokenize}", jenia);
+		router.attach("/annotator={text}/tokenized={tokenize}", annotator);
 
 		return router;
 	}
