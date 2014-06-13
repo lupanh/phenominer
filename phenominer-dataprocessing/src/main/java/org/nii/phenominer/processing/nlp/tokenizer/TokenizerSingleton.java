@@ -37,5 +37,5 @@ public class TokenizerSingleton {
 	public String[] tokenize(String text) {
 		String[] tokens = tokenizer.tokenize(text);
 		return tokens;
-	}
+	}	
 }

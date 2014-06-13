@@ -31,6 +31,8 @@ import edu.stanford.nlp.util.StringUtils;
 
 public class OntologyAnnotator {
 	List<LongestMatching> matchers = new ArrayList<LongestMatching>();
+	JsonSerializer serializer = new JsonSerializerFactory().create();
+	XStream xstream = new XStream();
 
 	public OntologyAnnotator(String optFile) throws Exception {
 		loadOptionFile(optFile);
@@ -113,12 +115,12 @@ public class OntologyAnnotator {
 		in.close();
 	}
 
-	public Set<BioSpan> annotate(String text[]) {
+	public Set<BioSpan> annotate(String tokens[]) {
 		Set<BioSpan> spans = new HashSet<BioSpan>();
 
 		for (LongestMatching matcher : matchers) {
 			for (int i = 1; i <= 4; i++) {
-				BioSpan[] annotations = matcher.tagging(text, i, true);
+				BioSpan[] annotations = matcher.tagging(tokens, i, true);
 				spans.addAll(new ArrayList<BioSpan>(Arrays.asList(annotations)));
 			}
 			// BioSpan[] annotations = matcher.tagging(text, -1, true);
@@ -128,23 +130,13 @@ public class OntologyAnnotator {
 		return spans;
 	}
 
-	public static void main(String[] args) throws Exception {
-		boolean tokenize = false;
-		TokenizerME tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
-		OntologyAnnotator annotater = new OntologyAnnotator("test/ontologyMatcher.txt");
-		String text = "Autosomal dominant inheritance";
-		String[] tokens;
-		if (tokenize) {
-			tokens = tokenizer.tokenize(text);
-			text = StringUtils.join(tokens);
-		} else
-			tokens = text.split("\\s");
+	public Text annotate(String text, String tokens[], boolean isTokenized) {
+		Set<BioSpan> spans = annotate(tokens);
 
 		Text doc = new Text(text);
-		doc.setTokenize(tokenize);
+		doc.setTokenize(isTokenized);
 		doc.setTokens(tokens);
 
-		Set<BioSpan> spans = annotater.annotate(tokens);
 		for (BioSpan span : spans) {
 			String[] fields = span.getType().split("\\|");
 			int start = span.getStartOffset(tokens);
@@ -154,14 +146,36 @@ public class OntologyAnnotator {
 					fields[0], fields[1]);
 			doc.addAnnotations(annotation);
 		}
-		JsonSerializer serializer = new JsonSerializerFactory().create();
-		String json = serializer.serialize(doc).toString();
-		System.out.println(JsonWriter.formatJson(json));
+		return doc;
+	}
 
-		XStream xstream = new XStream();
+	public String annotateJson(String text, String tokens[], boolean isTokenized) throws Exception {
+		Text doc = annotate(text, tokens, isTokenized);
+
+		String json = serializer.serialize(doc).toString();
+		return JsonWriter.formatJson(json);
+	}
+
+	public String annotateXML(String text, String tokens[], boolean isTokenized) throws Exception {
+		Text doc = annotate(text, tokens, isTokenized);
+
 		xstream.alias("document", Text.class);
 		xstream.alias("annotation", Annotation.class);
-		String xml = xstream.toXML(doc);
-		System.out.println(xml);
+		return xstream.toXML(doc);
+	}
+
+	public static void main(String[] args) throws Exception {
+		boolean isTokenized = false;
+		TokenizerME tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
+		OntologyAnnotator annotater = new OntologyAnnotator("test/ontologyMatcher.txt");
+		String text = "Autosomal dominant inheritance";
+		String[] tokens;
+		if (isTokenized) {
+			tokens = tokenizer.tokenize(text);
+			text = StringUtils.join(tokens);
+		} else
+			tokens = text.split("\\s");
+
+		System.out.println(annotater.annotateXML(text, tokens, isTokenized));
 	}
 }

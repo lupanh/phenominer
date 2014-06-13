@@ -19,6 +19,8 @@
 				<include>com.cedarsoftware:json-io</include>
 				<include>io.fastjson:boon</include>
 				<include>net.sourceforge.owlapi:owlapi-oboformat</include>
+				<include>org.restlet.jse:org.restlet</include>
+				<include>org.restlet.jse:org.restlet.ext.jackson</include>
 			</includes>
 		</dependencySet>
 	</dependencySets>
