@@ -4,26 +4,6 @@
 	<formats>
 		<format>dir</format>
 	</formats>
-	<dependencySets>
-		<dependencySet>
-			<outputDirectory>lib</outputDirectory>
-			<includes>
-				<include>org.nii.phenominer.data.processing:phenominer-dataprocessing</include>
-				<include>org.apache.opennlp:opennlp-tools</include>
-				<include>org.apache.opennlp:opennlp-maxent</include>
-				<include>edu.stanford.nlp:stanford-corenlp</include>
-				<include>xerces:xercesImpl</include>
-				<include>org.zeroturnaround:zt-exec</include>
-				<include>commons-cli:commons-cli</include>
-				<include>com.thoughtworks.xstream:xstream</include>
-				<include>com.cedarsoftware:json-io</include>
-				<include>io.fastjson:boon</include>
-				<include>net.sourceforge.owlapi:owlapi-oboformat</include>
-				<include>org.restlet.jse:org.restlet</include>
-				<include>org.restlet.jse:org.restlet.ext.jackson</include>
-			</includes>
-		</dependencySet>
-	</dependencySets>
 	<fileSets>
 		<fileSet>
 			<directory>../lib</directory>
@@ -43,4 +23,10 @@
 			</includes>
 		</fileSet>
 	</fileSets>
+	<files>
+		<file>
+			<source>target/${artifactId}-jar-with-dependencies.jar</source>
+			<outputDirectory>lib</outputDirectory>
+		</file>
+	</files>
 </assembly>

@@ -15,9 +15,9 @@ import opennlp.tools.tokenize.TokenizerME;
 
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
+import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 import org.nii.phenominer.processing.bean.Annotation;
 import org.nii.phenominer.processing.bean.Text;
-import org.nii.phenominer.processing.nlp.tokenizer.TokenizerSingleton;
 import org.obolibrary.oboformat.model.Clause;
 import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;

@@ -56,6 +56,23 @@
 					<downloadJavadocs>false</downloadJavadocs>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>phenominer-ner</finalName>
+					<descriptors>
+						<descriptor>src/assembly/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -95,6 +112,16 @@
 			<version>0.4.0</version>
 			<scope>system</scope>
 			<systemPath>${rootPath}/lib/jeniatagger-0.4.0-jar-with-dependencies.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.washington.cs.knowitall</groupId>
+			<artifactId>openregex</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
 </project>

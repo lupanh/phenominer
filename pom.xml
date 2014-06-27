@@ -11,6 +11,7 @@
     <modules>
         <module>phenominer-datacollector</module>
         <module>phenominer-dataprocessing</module>
+        <module>phenominer-classify</module>
         <module>phenominer-ner</module>
         <module>phenominer-searchdb</module>
     </modules>
