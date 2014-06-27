@@ -26,6 +26,13 @@
 				<include>dictionary/*</include>
 			</includes>
 		</fileSet>
+		<fileSet>
+			<directory>src/script</directory>
+			<outputDirectory>.</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 	<files>
 		<file>
