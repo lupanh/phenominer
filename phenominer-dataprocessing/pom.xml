@@ -167,5 +167,12 @@
 			<artifactId>opennlp-maxent</artifactId>
 			<version>3.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jmcejuela.bio</groupId>
+			<artifactId>jeniatagger</artifactId>
+			<version>0.4.0</version>
+			<scope>system</scope>
+			<systemPath>${rootPath}/lib/jeniatagger-0.4.0-jar-with-dependencies.jar</systemPath>
+		</dependency>
 	</dependencies>
 </project>
