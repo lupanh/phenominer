@@ -18,14 +18,15 @@ public class JeniaFeatureGenerator extends FeatureGeneratorAdapter {
 			currentSentence = tokens;
 			sentence = Jenia.analyzeAll(tokens, true);
 		}
-		String geniaLemma = sentence.get(index).baseForm.toLowerCase();
-		String geniaPos = sentence.get(index).pos;
-		String geniaChunk = sentence.get(index).chunk;
-		String geniaNE = sentence.get(index).ne;
-		features.add("genia" + ":w=lemma=" + geniaLemma);
-		features.add("genia" + ":w=pos=" + geniaPos);
-		features.add("genia" + ":w=chunk=" + geniaChunk);
-		features.add("genia" + ":w=ne=" + geniaNE);
+		if (sentence != null) {
+			String geniaLemma = sentence.get(index).baseForm.toLowerCase();
+			String geniaPos = sentence.get(index).pos;
+			String geniaChunk = sentence.get(index).chunk;
+			String geniaNE = sentence.get(index).ne;
+			features.add("genia" + ":w=lemma=" + geniaLemma);
+			features.add("genia" + ":w=pos=" + geniaPos);
+			features.add("genia" + ":w=chunk=" + geniaChunk);
+			features.add("genia" + ":w=ne=" + geniaNE);
+		}	
 	}
-
 }

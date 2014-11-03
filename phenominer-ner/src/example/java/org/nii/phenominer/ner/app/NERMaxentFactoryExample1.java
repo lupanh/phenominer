@@ -57,9 +57,9 @@ public class NERMaxentFactoryExample1 {
 				new PrefixFeatureGenerator(),
 				new SuffixFeatureGenerator(),
 				new WordLengthFeatureGenerator(),
-				new BigramNameFeatureGenerator(), 
-				new OutcomePriorFeatureGenerator(), 
-				new PreviousMapFeatureGenerator(),
+				//new BigramNameFeatureGenerator(), 
+				//new OutcomePriorFeatureGenerator(), 
+				//new PreviousMapFeatureGenerator(),
 				new SentenceFeatureGenerator(true, false) 
 		});
 		return featureGenerator;
@@ -67,8 +67,8 @@ public class NERMaxentFactoryExample1 {
 	
 	public static void main(String[] args) throws Exception {
 		NERMaxentFactory ner = new NERMaxentFactory(createFeatureGenerator());
-		ner.trainNER("data/trainset/phenoner/top_Full_HPO.corpus", "models/phenoner/top_Full_HPO.model", 100, 1);
-		ner.evaluatebyExactMatching("data/trainset/phenoner/khordad.corpus", "models/phenoner/khordad.model");
+		//ner.trainNER("data/trainset/phenoner/top_Full_HPO.corpus", "models/phenoner/top_Full_HPO.model", 100, 1);
+		ner.evaluatebyExactMatching("data/trainset/phenoner/phenominer2012.full.corpus", "models/phenoner/phenominer2013.full.model");
 		//ner.recognize("data/trainset/phenoner/khordad.corpus", "models/phenoner/khordad.model");
 		//ner.nFoldEvaluate("data/phenominer/phenominer2012.bf.corpus", 10, 100, 1);
 	}

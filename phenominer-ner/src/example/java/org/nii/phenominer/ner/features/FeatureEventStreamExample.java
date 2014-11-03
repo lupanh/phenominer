@@ -1,6 +1,7 @@
 package org.nii.phenominer.ner.features;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -27,6 +28,7 @@ import opennlp.tools.util.featuregen.TokenClassFeatureGenerator;
 import opennlp.tools.util.featuregen.TokenFeatureGenerator;
 import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
+import org.nii.phenominer.ner.util.FileHelper;
 import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 
@@ -52,15 +54,15 @@ public class FeatureEventStreamExample {
 				new WindowFeatureGenerator(new NgramTokenFeatureGenerator(true, 2, 2), 2, 2),
 				new WindowFeatureGenerator(new NgramTokenFeatureGenerator(true, 3, 3), 2, 2),
 				new WindowFeatureGenerator(new JeniaFeatureGenerator(), 2, 2),
-				new DictionaryFeatureGenerator("HPO", loadDictionary("data/dictionary/hpo.txt")),
-				new DictionaryFeatureGenerator("PATO", loadDictionary("data/dictionary/pato.txt")),
-				new DictionaryFeatureGenerator("FMA", loadDictionary("data/dictionary/fma3.2.txt")),
+				//new DictionaryFeatureGenerator("HPO", loadDictionary("data/dictionary/hpo.txt")),
+				//new DictionaryFeatureGenerator("PATO", loadDictionary("data/dictionary/pato.txt")),
+				//new DictionaryFeatureGenerator("FMA", loadDictionary("data/dictionary/fma3.2.txt")),
 				new PrefixFeatureGenerator(),
 				new SuffixFeatureGenerator(),
 				new WordLengthFeatureGenerator(),
-				new BigramNameFeatureGenerator(), 
-				new OutcomePriorFeatureGenerator(), 
-				new PreviousMapFeatureGenerator(),
+				//new BigramNameFeatureGenerator(), 
+				//new OutcomePriorFeatureGenerator(), 
+				//new PreviousMapFeatureGenerator(),
 				new SentenceFeatureGenerator(true, false) 
 		});
 
@@ -71,9 +73,7 @@ public class FeatureEventStreamExample {
 		EventStream es = new NameFinderEventStream(sampleStream, "EN", new DefaultNameContextGenerator(featureGenerator));
 		
 		while (es.hasNext()) {
-			System.out.println(es.next());
+			FileHelper.appendToFile(es.next().toString() + "\n", new File("features.txt"), charset);
 		}
-
 	}
-
 }

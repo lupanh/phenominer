@@ -10,7 +10,7 @@ public class Jenia extends JeniaTagger {
 		try {
 			return analyzeAll(StringUtils.join(tokens), dont_tokenize);
 		} catch (Exception e) {
-			System.out.println(StringUtils.join(tokens));
+			// System.out.println(StringUtils.join(tokens));
 			return null;
 		}
 

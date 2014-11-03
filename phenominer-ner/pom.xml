@@ -99,12 +99,17 @@
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
 			<artifactId>stanford-corenlp</artifactId>
-			<version>3.3.1</version>
+			<version>3.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.trove4j</groupId>
 			<artifactId>trove4j</artifactId>
 			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
+			<version>2.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jmcejuela.bio</groupId>
@@ -114,14 +119,14 @@
 			<systemPath>${rootPath}/lib/jeniatagger-0.4.0-jar-with-dependencies.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.7.3</version>
-		</dependency>
-		<dependency>
 			<groupId>edu.washington.cs.knowitall</groupId>
 			<artifactId>openregex</artifactId>
 			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cc.mallet</groupId>
+			<artifactId>mallet</artifactId>
+			<version>2.0.7</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -64,8 +64,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -81,6 +81,11 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<dependency>
+			<groupId>org.nii.phenominer.ner</groupId>
+			<artifactId>phenominer-ner</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.restlet.jse</groupId>
 			<artifactId>org.restlet</artifactId>
@@ -122,21 +127,6 @@
 			<version>3.5.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.opennlp</groupId>
-			<artifactId>opennlp-tools</artifactId>
-			<version>1.5.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.opennlp</groupId>
-			<artifactId>opennlp-maxent</artifactId>
-			<version>3.0.3</version>
-		</dependency>
-		<dependency>
-			<groupId>edu.stanford.nlp</groupId>
-			<artifactId>stanford-corenlp</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
 			<groupId>edu.uwm.pmcarticleparser</groupId>
 			<artifactId>pmcarticleparser</artifactId>
 			<version>1.0</version>
@@ -161,13 +151,6 @@
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
 			<version>2.7.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jmcejuela.bio</groupId>
-			<artifactId>jeniatagger</artifactId>
-			<version>0.4.0</version>
-			<scope>system</scope>
-			<systemPath>${rootPath}/lib/jeniatagger-0.4.0-jar-with-dependencies.jar</systemPath>
 		</dependency>
 	</dependencies>
 </project>
