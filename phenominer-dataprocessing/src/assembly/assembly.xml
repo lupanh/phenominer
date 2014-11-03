@@ -4,15 +4,19 @@
 	<formats>
 		<format>dir</format>
 	</formats>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<useProjectArtifact>true</useProjectArtifact>
+			<scope>runtime</scope>
+		</dependencySet>
+	</dependencySets>
 	<fileSets>
 		<fileSet>
-			<directory>../lib</directory>
-			<outputDirectory>lib</outputDirectory>
+			<directory>src/app</directory>
+			<outputDirectory></outputDirectory>
 			<includes>
-				<include>**/java_utils.jar</include>
-				<include>**/jeniatagger-0.4.0-jar-with-dependencies.jar</include>
-				<include>**/pmcarticleparser.jar</include>
-				<include>**/sptoolkit.jar</include>
+				<include>**/*</include>
 			</includes>
 		</fileSet>
 		<fileSet>
@@ -22,11 +26,5 @@
 				<include>**/*</include>
 			</includes>
 		</fileSet>
-	</fileSets>
-	<files>
-		<file>
-			<source>target/${artifactId}-jar-with-dependencies.jar</source>
-			<outputDirectory>lib</outputDirectory>
-		</file>
-	</files>
+	</fileSets>	
 </assembly>
