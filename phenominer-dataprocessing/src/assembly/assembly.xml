@@ -20,7 +20,7 @@
 			</includes>
 		</fileSet>
 		<fileSet>
-			<directory>models</directory>
+			<directory>../phenominer-ner/models</directory>
 			<outputDirectory>models</outputDirectory>
 			<includes>
 				<include>**/*</include>

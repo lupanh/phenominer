@@ -25,11 +25,11 @@ OS=`uname`
 
 APP_HOME="."
 
-LIB="$APP_HOME/lib" ;
+LIB="$APP_HOME/lib";
 
 CLASSPATH="$JAVA_DIR/lib/tools.jar"
 
-CLASSPATH=${CLASSPATH}:$LIB/*:phenominer-dataprocessing-jar-with-dependencies.jar;
+CLASSPATH=${CLASSPATH}:$LIB/*;
 
 JAVACMD="$JAVA_DIR/bin/java"
 
