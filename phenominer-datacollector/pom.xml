@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>phenominer</artifactId>
+		<groupId>org.nii.phenominer</groupId>
+		<version>1.0</version>
+	</parent>
 	<groupId>org.nii.phenominer.data.collector</groupId>
 	<artifactId>phenominer-datacollector</artifactId>
 	<packaging>jar</packaging>
@@ -52,23 +57,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<downloadSources>false</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
 	<dependencies>
@@ -76,16 +65,11 @@
 			<groupId>org.nii.phenominer.data.processing</groupId>
 			<artifactId>phenominer-dataprocessing</artifactId>
 			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.7.3</version>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>us.codecraft</groupId>
 			<artifactId>xsoup</artifactId>
-			<version>0.2.4</version>
+			<version>0.3.0</version>
 		</dependency>
 	</dependencies>
 </project>

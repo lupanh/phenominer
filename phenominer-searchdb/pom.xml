@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>phenominer</artifactId>
+		<groupId>org.nii.phenominer</groupId>
+		<version>1.0</version>
+	</parent>
 	<groupId>org.nii.phenominer.searchdb</groupId>
 	<artifactId>phenominer-searchdb</artifactId>
 	<packaging>jar</packaging>
@@ -46,28 +51,11 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-				</configuration>
-			</plugin>
+			</plugin>			
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
+			</plugin>			
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
@@ -89,22 +77,7 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.fastjson</groupId>
-			<artifactId>boon</artifactId>
-			<version>0.18</version>
-		</dependency>
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-			<version>1.4.7</version>
-		</dependency>
-		<dependency>
-			<groupId>com.cedarsoftware</groupId>
-			<artifactId>json-io</artifactId>
-			<version>2.6.0</version>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>

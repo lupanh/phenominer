@@ -1,6 +1,6 @@
-package org.nii.phenominer.ner.matching;
+package org.nii.phenominer.nlp.matching;
 
-import org.nii.phenominer.ner.matching.BioSpan;
+import org.nii.phenominer.nlp.matching.BioSpan;
 
 import opennlp.tools.dictionary.Dictionary;
 import opennlp.tools.namefind.DictionaryNameFinder;

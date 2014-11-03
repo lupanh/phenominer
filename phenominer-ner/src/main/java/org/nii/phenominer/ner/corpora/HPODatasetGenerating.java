@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.nii.phenominer.ner.matching.BioSpan;
-import org.nii.phenominer.ner.matching.LongestMatching;
 import org.nii.phenominer.ner.ontology.OBOParser;
 import org.nii.phenominer.ner.util.Pair;
 import org.nii.phenominer.ner.util.PairList;
+import org.nii.phenominer.nlp.matching.BioSpan;
+import org.nii.phenominer.nlp.matching.LongestMatching;
 import org.nii.phenominer.nlp.splitter.SentenceSplitter;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 import org.nii.phenominer.nlp.util.FileHelper;

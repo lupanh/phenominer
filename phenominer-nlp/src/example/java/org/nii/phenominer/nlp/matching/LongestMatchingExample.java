@@ -1,9 +1,9 @@
-package org.nii.phenominer.ner.matching;
+package org.nii.phenominer.nlp.matching;
 
 import java.util.HashMap;
 
-import org.nii.phenominer.ner.matching.BioSpan;
-import org.nii.phenominer.ner.matching.LongestMatching;
+import org.nii.phenominer.nlp.matching.BioSpan;
+import org.nii.phenominer.nlp.matching.LongestMatching;
 
 public class LongestMatchingExample {
 	public static HashMap<String, String> dict = new HashMap<String, String>();

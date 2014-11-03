@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright (c) 2013 Mai-Vu Tran.
  ******************************************************************************/
-package org.nii.phenominer.ner.matching;
+package org.nii.phenominer.nlp.matching;
 
 import java.util.HashMap;
 import java.util.Map;

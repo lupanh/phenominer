@@ -1,4 +1,4 @@
-package org.nii.phenominer.ner.matching;
+package org.nii.phenominer.nlp.matching;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

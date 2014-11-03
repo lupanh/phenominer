@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import org.nii.phenominer.ner.matching.BioSpan;
+import org.nii.phenominer.nlp.matching.BioSpan;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 
 import opennlp.tools.namefind.NameFinderME;
