@@ -16,11 +16,6 @@ Author="Mai-Vu Tran (vutranmai@gmail.com)"
 
 ### Main ###
 
-# cp -rf ../backend/phenominer/phenominer-dataprocessing/models/ .
-cp ../backend/phenominer/phenominer-dataprocessing/target/phenominer-dataprocessing-jar-with-dependencies.jar .
-
-JAVA_DIR="../tools/jdk1.7.0_60"
-
 OS=`uname`
 
 APP_HOME="."
@@ -31,10 +26,8 @@ CLASSPATH="$JAVA_DIR/lib/tools.jar"
 
 CLASSPATH=${CLASSPATH}:$LIB/*;
 
-JAVACMD="$JAVA_DIR/bin/java"
-
 CLASS='org.nii.phenominer.processing.app.NLPToolsWebService'
 JAVA_OPTS="-server -XX:+UseParallelGC -Xshare:auto -Xms1g -Xmx4g"
-exec $JAVACMD $JAVA_OPTS -cp $CLASSPATH $CLASS "$@"
+exec java $JAVA_OPTS -cp $CLASSPATH $CLASS "$@"
 
 exit 0
