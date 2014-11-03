@@ -29,7 +29,7 @@ import edu.stanford.nlp.util.StringUtils;
 
 public class NLPToolsWebService extends Application {
 	static BllipParserServer bllipparser;
-	static OntologyAnnotator annotater;
+	static OntologyAnnotator annotater = null;
 	static TokenizerME tokenizer;
 
 	private static Options buildOptions() {
@@ -54,7 +54,7 @@ public class NLPToolsWebService extends Application {
 
 			Option ontologyListFile = new Option("o", "ontologyListFile", true,
 					"Ontology list file path");
-			ontologyListFile.setRequired(true);
+			ontologyListFile.setRequired(false);
 			ontologyListFile.setArgName("file");
 			options.addOption(ontologyListFile);
 
@@ -83,7 +83,8 @@ public class NLPToolsWebService extends Application {
 			String secondStageModelPath, String ontologiesListPath) throws Exception {
 		bllipparser = new BllipParserServer(bllipHome, firstStageModelPath, secondStageModelPath);
 		Jenia.setModelsPath("models/genia");
-		annotater = new OntologyAnnotator(ontologiesListPath);
+		if (ontologiesListPath != null)
+			annotater = new OntologyAnnotator(ontologiesListPath);
 		tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
 	}
 
@@ -156,34 +157,36 @@ public class NLPToolsWebService extends Application {
 				response.setEntity(message, MediaType.TEXT_PLAIN);
 			}
 		};
+		
+		if (annotater != null) {
+			Restlet annotator = new Restlet() {
+				@Override
+				public void handle(Request request, Response response) {
+					String message;
+					try {
+						boolean isTokenized = Boolean.parseBoolean((String) request.getAttributes()
+								.get("tokenize"));
+						String text = java.net.URLDecoder.decode(
+								(String) request.getAttributes().get("text"), "UTF-8");
+						String[] tokens;
+						if (isTokenized) {
+							tokens = tokenizer.tokenize(text);
+							text = StringUtils.join(tokens);
+						} else
+							tokens = text.split("\\s");
+						message = annotater.annotateXML(text, tokens, false);
+					} catch (Exception e) {
+						message = "";
+					}
 
-		Restlet annotator = new Restlet() {
-			@Override
-			public void handle(Request request, Response response) {
-				String message;
-				try {
-					boolean isTokenized = Boolean.parseBoolean((String) request.getAttributes()
-							.get("tokenize"));
-					String text = java.net.URLDecoder.decode(
-							(String) request.getAttributes().get("text"), "UTF-8");
-					String[] tokens;
-					if (isTokenized) {
-						tokens = tokenizer.tokenize(text);
-						text = StringUtils.join(tokens);
-					} else
-						tokens = text.split("\\s");
-					message = annotater.annotateXML(text, tokens, false);
-				} catch (Exception e) {
-					message = "";
+					response.setEntity(message, MediaType.TEXT_XML);
 				}
-
-				response.setEntity(message, MediaType.TEXT_XML);
-			}
-		};
+			};
+			router.attach("/annotator={text}/tokenized={tokenize}", annotator);
+		}		
 
 		router.attach("/bllip={text}/tokenized={tokenize}", bllip);
 		router.attach("/genia={text}/tokenized={tokenize}", jenia);
-		router.attach("/annotator={text}/tokenized={tokenize}", annotator);
 
 		return router;
 	}
