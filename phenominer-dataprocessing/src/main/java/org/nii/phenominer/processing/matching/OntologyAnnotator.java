@@ -15,6 +15,8 @@ import opennlp.tools.tokenize.TokenizerME;
 
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
+import org.nii.phenominer.ner.matching.BioSpan;
+import org.nii.phenominer.ner.matching.LongestMatching;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 import org.nii.phenominer.processing.bean.Annotation;
 import org.nii.phenominer.processing.bean.Text;

@@ -3,10 +3,9 @@ package org.nii.phenominer.ml.crf;
 import java.io.File;
 import java.util.regex.Pattern;
 
+import org.nii.phenominer.nlp.util.FileHelper;
+
 import opennlp.model.SequenceStream;
-
-import org.nii.phenominer.ner.util.FileHelper;
-
 import cc.mallet.fst.CRF;
 import cc.mallet.fst.CRFTrainerByLabelLikelihood;
 import cc.mallet.fst.Transducer;

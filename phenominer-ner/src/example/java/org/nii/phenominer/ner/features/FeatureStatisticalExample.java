@@ -30,9 +30,9 @@ import opennlp.tools.util.featuregen.TokenFeatureGenerator;
 import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
 import org.nii.phenominer.ml.crf.NERSequenceStream;
-import org.nii.phenominer.ner.util.FileHelper;
 import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.util.FileHelper;
 
 public class FeatureStatisticalExample {
 	static Dictionary loadDictionary(String file) throws Exception {

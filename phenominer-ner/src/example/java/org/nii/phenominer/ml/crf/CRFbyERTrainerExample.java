@@ -23,7 +23,6 @@ import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
 import org.nii.phenominer.ner.features.FeatureStatisticalExample;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
-import org.nii.phenominer.ner.util.FileHelper;
 
 import cc.mallet.fst.CRF;
 import cc.mallet.fst.PerClassAccuracyEvaluator;

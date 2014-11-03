@@ -4,10 +4,9 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import org.nii.phenominer.nlp.util.FileHelper;
+
 import opennlp.model.SequenceStream;
-
-import org.nii.phenominer.ner.util.FileHelper;
-
 import cc.mallet.fst.CRF;
 import cc.mallet.types.Alphabet;
 import cc.mallet.types.FeatureVectorSequence;

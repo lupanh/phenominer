@@ -6,8 +6,8 @@ import java.nio.charset.Charset;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.tokenize.TokenizerME;
 
-import org.nii.phenominer.ner.util.FileHelper;
 import org.nii.phenominer.nlp.splitter.SentenceSplitter;
+import org.nii.phenominer.nlp.util.FileHelper;
 
 public class TokenizerExample2 {
 	static TokenizerME tokenizer;

@@ -17,12 +17,12 @@ import org.apache.commons.cli.ParseException;
 import org.boon.IO;
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
+import org.nii.phenominer.ner.matching.BioSpan;
+import org.nii.phenominer.nlp.util.FileHelper;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
 import org.nii.phenominer.processing.bean.Annotation;
 import org.nii.phenominer.processing.bean.Text;
-import org.nii.phenominer.processing.matching.BioSpan;
 import org.nii.phenominer.processing.matching.OntologyAnnotator;
-import org.nii.phenominer.processing.util.FileHelper;
 
 import com.cedarsoftware.util.io.JsonWriter;
 import com.thoughtworks.xstream.XStream;

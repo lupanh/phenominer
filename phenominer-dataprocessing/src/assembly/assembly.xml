@@ -31,5 +31,12 @@
 				<include>**/*</include>
 			</includes>
 		</fileSet>
+		<fileSet>
+			<directory>../phenominer-nlp/models</directory>
+			<outputDirectory>models</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
 	</fileSets>	
 </assembly>

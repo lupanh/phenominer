@@ -1,4 +1,4 @@
-package org.nii.phenominer.ner.util;
+package org.nii.phenominer.nlp.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

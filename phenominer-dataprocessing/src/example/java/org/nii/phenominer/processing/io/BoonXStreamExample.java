@@ -9,7 +9,7 @@ import org.boon.json.JsonParserAndMapper;
 import org.boon.json.JsonParserFactory;
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
-import org.nii.phenominer.processing.util.FileHelper;
+import org.nii.phenominer.nlp.util.FileHelper;
 
 import com.thoughtworks.xstream.XStream;
 

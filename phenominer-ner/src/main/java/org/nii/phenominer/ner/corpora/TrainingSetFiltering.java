@@ -6,14 +6,15 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.nii.phenominer.ner.util.FileHelper;
+import org.nii.phenominer.nlp.util.FileHelper;
 
 public class TrainingSetFiltering {
 	static String fileIn = "data/phenominer/phenominerssl2014.full.bf.corpus";
 	static String fileOut = "data/phenominer/phenominerssl2014.full.lite.bf.corpus";
 
 	public static void main(String[] args) throws Exception {
-		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileIn), "UTF-8"));
+		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileIn),
+				"UTF-8"));
 		Set<String> content = new HashSet<String>();
 		String line = new String();
 		while ((line = in.readLine()) != null) {

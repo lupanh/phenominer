@@ -1,4 +1,4 @@
-package org.nii.phenominer.ner.nlp.jeniatagger;
+package org.nii.phenominer.nlp.jeniatagger;
 
 import org.nii.phenominer.nlp.jeniatagger.Jenia;
 
@@ -9,7 +9,6 @@ public class JeniaTaggerExample {
 		Jenia.setModelsPath("models/genia");
 		String text = "Two eyes";
 		Sentence sentence = Jenia.analyzeAll(text, true);
-		System.out.println(sentence);		
+		System.out.println(sentence);
 	}
-
 }

@@ -3,8 +3,8 @@ package org.nii.phenominer.nlp.splitter;
 import java.io.File;
 import java.nio.charset.Charset;
 
-import org.nii.phenominer.ner.util.FileHelper;
 import org.nii.phenominer.nlp.splitter.SentenceSplitter;
+import org.nii.phenominer.nlp.util.FileHelper;
 
 import opennlp.tools.sentdetect.SentenceDetectorME;
 

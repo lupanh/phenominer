@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>phenominer</artifactId>
+		<groupId>org.nii.phenominer</groupId>
+		<version>1.0</version>
+	</parent>
 	<groupId>org.nii.phenominer.data.processing</groupId>
 	<artifactId>phenominer-dataprocessing</artifactId>
 	<packaging>jar</packaging>
@@ -54,22 +59,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<finalName>phenominer-dataprocessing</finalName>
@@ -89,12 +78,12 @@
 		<dependency>
 			<groupId>org.restlet.jse</groupId>
 			<artifactId>org.restlet</artifactId>
-			<version>2.2.1</version>
+			<version>2.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.restlet.jse</groupId>
 			<artifactId>org.restlet.ext.jackson</artifactId>
-			<version>2.2.1</version>
+			<version>2.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.zeroturnaround</groupId>
