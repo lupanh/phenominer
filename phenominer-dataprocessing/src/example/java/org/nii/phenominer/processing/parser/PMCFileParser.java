@@ -25,9 +25,9 @@ public class PMCFileParser {
 		List<PMCArticleSentence> sentences = ft.getFullTextSentences();
 		for (PMCArticleSentence sentence : sentences) {
 			if (sentence.getInParagraphIndex() == 0) {
-				System.out.println("\n");
+				System.out.println();
 			}
-			System.out.println(sentence.getText() + "\n");
+			System.out.println(sentence.getText());
 		}
 	}
 
