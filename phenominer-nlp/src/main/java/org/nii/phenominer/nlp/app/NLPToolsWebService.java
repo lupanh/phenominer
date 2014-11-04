@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.app;
+package org.nii.phenominer.nlp.app;
 
 import java.io.UnsupportedEncodingException;
 
@@ -10,10 +10,9 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
-import org.nii.phenominer.processing.matching.OntologyAnnotator;
-import org.nii.phenominer.processing.parse.BllipParserServer;
+import org.nii.phenominer.nlp.tools.bllipparser.BllipParserServer;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.Request;

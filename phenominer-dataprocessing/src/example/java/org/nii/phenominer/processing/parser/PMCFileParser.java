@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.parse;
+package org.nii.phenominer.processing.parser;
 
 import java.util.List;
 

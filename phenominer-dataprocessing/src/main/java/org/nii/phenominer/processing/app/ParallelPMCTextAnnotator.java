@@ -23,11 +23,11 @@ import org.boon.IO;
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
 import org.nii.phenominer.nlp.util.FileHelper;
+import org.nii.phenominer.nlp.app.OntologyAnnotator;
+import org.nii.phenominer.nlp.data.Annotation;
+import org.nii.phenominer.nlp.data.Text;
 import org.nii.phenominer.nlp.matching.BioSpan;
 import org.nii.phenominer.nlp.tokenizer.Tokenizer;
-import org.nii.phenominer.processing.bean.Annotation;
-import org.nii.phenominer.processing.bean.Text;
-import org.nii.phenominer.processing.matching.OntologyAnnotator;
 
 import com.cedarsoftware.util.io.JsonWriter;
 import com.thoughtworks.xstream.XStream;

@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.matching;
+package org.nii.phenominer.nlp.app;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -15,11 +15,11 @@ import opennlp.tools.tokenize.TokenizerME;
 
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
+import org.nii.phenominer.nlp.data.Annotation;
+import org.nii.phenominer.nlp.data.Text;
 import org.nii.phenominer.nlp.matching.BioSpan;
 import org.nii.phenominer.nlp.matching.LongestMatching;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
-import org.nii.phenominer.processing.bean.Annotation;
-import org.nii.phenominer.processing.bean.Text;
 import org.obolibrary.oboformat.model.Clause;
 import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;

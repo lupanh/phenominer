@@ -22,8 +22,8 @@ import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 import org.nii.phenominer.ner.features.JeniaFeatureGenerator;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 public class NERMaxentRecognizerExample {
 	static Dictionary loadDictionary(String file) throws Exception {

@@ -1,0 +1,1 @@
+sh nlptools_webservice.sh -b /root/phenominer/tools/bllip-parser/ -f /root/phenominer/tools/bllip-parser/biomodel/parser/ -s /root/phenominer/tools/bllip-parser/biomodel/reranker/ -p 8111

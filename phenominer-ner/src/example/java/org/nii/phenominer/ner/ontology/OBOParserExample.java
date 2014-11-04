@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.ontology;
+package org.nii.phenominer.ner.ontology;
 
 import org.obolibrary.oboformat.model.Clause;
 import org.obolibrary.oboformat.model.Frame;

@@ -1,8 +1,8 @@
-package org.nii.phenominer.processing.rest;
+package org.nii.phenominer.nlp.tools.bllipparser;
 
 import org.restlet.resource.ClientResource;
 
-public class BllipParserClient {
+public class BllipParserClientExample {
 
 	public static void main(String[] args) throws Exception {
 		ClientResource client;

@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.parse;
+package org.nii.phenominer.nlp.tools.bllipparser;
 
 import java.io.BufferedReader;
 import java.io.IOException;

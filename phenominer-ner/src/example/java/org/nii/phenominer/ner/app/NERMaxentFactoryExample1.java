@@ -8,8 +8,8 @@ import org.nii.phenominer.ner.app.NERMaxentFactory;
 import org.nii.phenominer.ner.features.JeniaFeatureGenerator;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 import opennlp.tools.dictionary.Dictionary;
 import opennlp.tools.util.StringList;

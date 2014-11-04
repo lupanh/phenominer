@@ -1,4 +1,4 @@
-package org.nii.phenominer.nlp.jeniatagger;
+package org.nii.phenominer.nlp.tools.jeniatagger;
 
 import com.jmcejuela.bio.jenia.JeniaTagger;
 import com.jmcejuela.bio.jenia.common.Sentence;

@@ -24,5 +24,12 @@
 				<include>**/*</include>
 			</includes>
 		</fileSet>		
+		<fileSet>
+			<directory>models</directory>
+			<outputDirectory>models</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
 	</fileSets>	
 </assembly>

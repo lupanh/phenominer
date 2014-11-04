@@ -26,7 +26,7 @@ CLASSPATH="$JAVA_DIR/lib/tools.jar"
 
 CLASSPATH=${CLASSPATH}:$LIB/*;
 
-CLASS='org.nii.phenominer.processing.app.NLPToolsWebService'
+CLASS='org.nii.phenominer.nlp.app.NLPToolsWebService'
 JAVA_OPTS="-server -XX:+UseParallelGC -Xshare:auto -Xms1g -Xmx4g"
 exec java $JAVA_OPTS -cp $CLASSPATH $CLASS "$@"
 

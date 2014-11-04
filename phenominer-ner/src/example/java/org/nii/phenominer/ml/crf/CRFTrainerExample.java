@@ -31,8 +31,8 @@ import org.nii.phenominer.ner.features.JeniaFeatureGenerator;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.TrigramNameFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.util.FileHelper;
 
 import cc.mallet.fst.CRF;

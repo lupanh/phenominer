@@ -1,6 +1,6 @@
-package org.nii.phenominer.nlp.jeniatagger;
+package org.nii.phenominer.nlp.tools.jeniatagger;
 
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 import com.jmcejuela.bio.jenia.common.Sentence;
 

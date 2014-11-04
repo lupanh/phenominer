@@ -1,4 +1,4 @@
-package org.nii.phenominer.processing.bean;
+package org.nii.phenominer.nlp.data;
 
 public class Annotation {
 	String text;

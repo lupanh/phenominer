@@ -69,11 +69,6 @@
 			<groupId>org.nii.phenominer.nlp</groupId>
 			<artifactId>phenominer-nlp</artifactId>
 			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bbop</groupId>
-			<artifactId>oboformat</artifactId>
-			<version>0.5.4-SNAPSHOT</version>
 		</dependency>		
 		<dependency>
 			<groupId>org.jsoup</groupId>

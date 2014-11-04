@@ -40,8 +40,8 @@ import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
 import org.nii.phenominer.nlp.eval.ApproximateFMeasure;
 import org.nii.phenominer.nlp.eval.HybridApproximateEvaluator;
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 public class KhordadMaxentEQCrossValidationCase {
 	static int numValidations = 10;

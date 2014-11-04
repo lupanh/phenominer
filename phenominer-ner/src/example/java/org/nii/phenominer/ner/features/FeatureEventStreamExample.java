@@ -28,8 +28,8 @@ import opennlp.tools.util.featuregen.TokenClassFeatureGenerator;
 import opennlp.tools.util.featuregen.TokenFeatureGenerator;
 import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.util.FileHelper;
 
 public class FeatureEventStreamExample {

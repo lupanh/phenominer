@@ -2,7 +2,7 @@ package org.nii.phenominer.ner.features;
 
 import java.util.List;
 
-import org.nii.phenominer.nlp.jeniatagger.Jenia;
+import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 import com.jmcejuela.bio.jenia.common.Sentence;
 
