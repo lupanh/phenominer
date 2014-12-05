@@ -4,10 +4,11 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
 import edu.stanford.nlp.process.PTBTokenizer;
-import edu.stanford.nlp.util.StringUtils;
 
 public class PTBTokenizerExample {
 
@@ -20,7 +21,7 @@ public class PTBTokenizerExample {
 			label = (CoreLabel) tokenizer.next();
 			tokens.add(normalize(label.originalText()));
 		}
-		System.out.println(StringUtils.join(tokens));
+		System.out.println(StringUtils.join(tokens.toArray(new String[tokens.size()])));
 	}
 
 	static String normalize(String text) {

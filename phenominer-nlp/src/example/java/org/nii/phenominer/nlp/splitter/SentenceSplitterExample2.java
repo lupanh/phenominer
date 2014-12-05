@@ -3,7 +3,7 @@ package org.nii.phenominer.nlp.splitter;
 import java.io.File;
 import java.nio.charset.Charset;
 
-import org.nii.phenominer.nlp.splitter.SentenceSplitter;
+import org.nii.phenominer.nlp.splitter.SentSplitterMESingleton;
 import org.nii.phenominer.nlp.util.FileHelper;
 
 import opennlp.tools.sentdetect.SentenceDetectorME;
@@ -14,7 +14,7 @@ public class SentenceSplitterExample2 {
 	static String folderTest = "corpus/PubmedOMIM";
 
 	public static void main(String[] args) throws Exception {
-		splitter = SentenceSplitter.getInstance().createSentenceDetectorModel();
+		splitter = SentSplitterMESingleton.getInstance().createSentenceDetectorModel();
 		new File("sentenceExample2.txt").delete();
 		File folder = new File(folderTest);
 		for (File file : folder.listFiles()) {

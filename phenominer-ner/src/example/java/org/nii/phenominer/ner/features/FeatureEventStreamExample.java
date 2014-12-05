@@ -28,7 +28,7 @@ import opennlp.tools.util.featuregen.TokenClassFeatureGenerator;
 import opennlp.tools.util.featuregen.TokenFeatureGenerator;
 import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 import org.nii.phenominer.nlp.util.FileHelper;
 
@@ -40,7 +40,7 @@ public class FeatureEventStreamExample {
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 		String line = new String();
 		while ((line = in.readLine()) != null) {
-			dict.put(new StringList(TokenizerSingleton.getInstance().tokenize(line)));
+			dict.put(new StringList(TokenizerMESingleton.getInstance().tokenize(line)));
 		}
 		in.close();
 		return dict;

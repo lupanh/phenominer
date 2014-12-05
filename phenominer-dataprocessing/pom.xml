@@ -76,30 +76,9 @@
 			<version>1.0</version>
 		</dependency>		
 		<dependency>
-			<groupId>edu.uwm.pmcarticleparser</groupId>
-			<artifactId>pmcarticleparser</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${rootPath}/lib/pmcarticleparser.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>edu.uwm.generalutils</groupId>
-			<artifactId>java_utils</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${rootPath}/lib/java_utils.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>edu.uwm.spiaotools</groupId>
-			<artifactId>sptoolkit</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${rootPath}/lib/sptoolkit.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
-			<version>2.7.1</version>
-		</dependency>		
+			<version>2.11.0</version>
+		</dependency>
 	</dependencies>
 </project>

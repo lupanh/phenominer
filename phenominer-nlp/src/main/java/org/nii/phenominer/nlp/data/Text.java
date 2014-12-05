@@ -8,13 +8,13 @@ public class Text {
 	String content;
 	String[] tokens;
 	boolean isTokenize;
-	List<Annotation> annotations = new ArrayList<Annotation>();
+	List<TextAnnotation> annotations = new ArrayList<TextAnnotation>();
 
 	public Text(String content) {
 		this.content = content;
 	}
 
-	public Text(String content, String[] tokens, boolean isTokenize, List<Annotation> annotations) {
+	public Text(String content, String[] tokens, boolean isTokenize, List<TextAnnotation> annotations) {
 		this.content = content;
 		this.tokens = tokens;
 		this.isTokenize = isTokenize;
@@ -45,15 +45,15 @@ public class Text {
 		this.isTokenize = isTokenize;
 	}
 
-	public List<Annotation> getAnnotations() {
+	public List<TextAnnotation> getAnnotations() {
 		return annotations;
 	}
 
-	public boolean addAnnotations(Annotation annotation) {
+	public boolean addAnnotations(TextAnnotation annotation) {
 		return annotations.add(annotation);
 	}
 
-	public void setAnnotations(List<Annotation> annotations) {
+	public void setAnnotations(List<TextAnnotation> annotations) {
 		this.annotations = annotations;
 	}
 

@@ -30,7 +30,7 @@ public class POSTaggerTrainUtil {
 	public static void trainPOSTaggerModel() throws Exception {
 		POSModel posModel = trainPOSModel(ModelType.MAXENT);
 
-		OutputStream out = new FileOutputStream("models/postagger/biopos.wsj_genia.1.0.model");
+		OutputStream out = new FileOutputStream(POSTaggerTrainUtil.class.getClassLoader().getResource("models/postagger/biopos.wsj_genia.1.0.model").getFile());
 		posModel.serialize(out);
 		out.close();
 	}

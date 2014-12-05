@@ -6,10 +6,10 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.List;
 
-import edu.uwm.pmcarticleparser.PMCArticle;
-import edu.uwm.pmcarticleparser.structuralelements.PMCArticleAbstract;
-import edu.uwm.pmcarticleparser.structuralelements.PMCArticleFullText;
-import edu.uwm.pmcarticleparser.structuralelements.PMCArticleSentence;
+import org.nii.phenominer.processing.data.pubmed.PMCArticleAbstract;
+import org.nii.phenominer.processing.data.pubmed.PMCArticleFullText;
+import org.nii.phenominer.processing.data.pubmed.PMCArticleSentence;
+import org.nii.phenominer.processing.parser.pubmed.PMCArticleParser;
 
 public class PMC2TextParser {
 	static void copyFolder(File src, File dest) throws Exception {
@@ -31,7 +31,7 @@ public class PMC2TextParser {
 	}
 
 	static void extract(String inputFile, String outputFile) throws Exception {
-		PMCArticle pa = new PMCArticle(inputFile);
+		PMCArticleParser pa = new PMCArticleParser(inputFile);
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
 				outputFile.substring(0, outputFile.lastIndexOf(File.separator)) + "/pmc"
 						+ pa.getPmcId() + ".txt")));

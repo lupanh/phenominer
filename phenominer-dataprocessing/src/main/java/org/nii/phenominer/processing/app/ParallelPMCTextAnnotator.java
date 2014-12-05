@@ -19,20 +19,19 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.lang3.StringUtils;
 import org.boon.IO;
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
 import org.nii.phenominer.nlp.util.FileHelper;
 import org.nii.phenominer.nlp.app.OntologyAnnotator;
-import org.nii.phenominer.nlp.data.Annotation;
+import org.nii.phenominer.nlp.data.BioSpan;
+import org.nii.phenominer.nlp.data.TextAnnotation;
 import org.nii.phenominer.nlp.data.Text;
-import org.nii.phenominer.nlp.matching.BioSpan;
 import org.nii.phenominer.nlp.tokenizer.Tokenizer;
 
 import com.cedarsoftware.util.io.JsonWriter;
 import com.thoughtworks.xstream.XStream;
-
-import edu.stanford.nlp.util.StringUtils;
 
 public class ParallelPMCTextAnnotator {
 	static boolean tokenize = false;
@@ -84,7 +83,7 @@ public class ParallelPMCTextAnnotator {
 		serializer = new JsonSerializerFactory().create();
 		xstream = new XStream();
 		xstream.alias("text", Text.class);
-		xstream.alias("annotation", Annotation.class);
+		xstream.alias("annotation", TextAnnotation.class);
 		xstream.alias("document", List.class);
 
 		Options options = buildOptions();
@@ -169,9 +168,9 @@ public class ParallelPMCTextAnnotator {
 								String[] fields = span.getType().split("\\|");
 								int start = span.getStartOffset(tokens);
 								int end = span.getEndOffset(tokens);
-								Annotation annotation = new Annotation(line.substring(start, end),
-										span.getStart(), span.getEnd(),
-										span.getStartOffset(tokens), span.getEndOffset(tokens),
+								TextAnnotation annotation = new TextAnnotation(line.substring(
+										start, end), span.getStart(), span.getEnd(), span
+										.getStartOffset(tokens), span.getEndOffset(tokens),
 										fields[0], fields[1]);
 								doc.addAnnotations(annotation);
 							}

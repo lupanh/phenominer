@@ -16,10 +16,10 @@ import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.node.Node;
 import org.elasticsearch.node.NodeBuilder;
-import org.nii.phenominer.searchdb.bean.phenominer.AnnotationCollection;
-import org.nii.phenominer.searchdb.bean.phenominer.Disorder;
-import org.nii.phenominer.searchdb.bean.phenominer.Term;
-import org.nii.phenominer.searchdb.parse.S5XMLParser;
+import org.nii.phenominer.searchdb.data.phenominer.AnnotationCollection;
+import org.nii.phenominer.searchdb.data.phenominer.Disorder;
+import org.nii.phenominer.searchdb.data.phenominer.Term;
+import org.nii.phenominer.searchdb.parser.S5XMLParser;
 
 import com.google.gson.Gson;
 

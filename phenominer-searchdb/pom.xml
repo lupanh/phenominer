@@ -51,11 +51,11 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
@@ -69,6 +69,11 @@
 	</build>
 	<dependencies>
 		<dependency>
+			<groupId>org.nii.phenominer.nlp</groupId>
+			<artifactId>phenominer-nlp</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.nii.phenominer.data.processing</groupId>
 			<artifactId>phenominer-dataprocessing</artifactId>
 			<version>1.0</version>
@@ -77,7 +82,7 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>

@@ -14,10 +14,10 @@ import java.util.Map;
 import org.nii.phenominer.ner.ontology.OBOParser;
 import org.nii.phenominer.ner.util.Pair;
 import org.nii.phenominer.ner.util.PairList;
-import org.nii.phenominer.nlp.matching.BioSpan;
-import org.nii.phenominer.nlp.matching.LongestMatching;
-import org.nii.phenominer.nlp.splitter.SentenceSplitter;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.data.BioSpan;
+import org.nii.phenominer.nlp.matcher.LongestMatching;
+import org.nii.phenominer.nlp.splitter.SentSplitterMESingleton;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.nii.phenominer.nlp.util.FileHelper;
 import org.obolibrary.oboformat.model.Clause;
 import org.obolibrary.oboformat.model.Frame;
@@ -113,11 +113,11 @@ public class HPODatasetGenerating {
 
 		int countSpans = 0;
 		String taggedContent = "";
-		String[] sentences = SentenceSplitter.getInstance().split(content);
+		String[] sentences = SentSplitterMESingleton.getInstance().split(content);
 		for (String sentence : sentences) {
 			if (sentence.trim().length() == 0)
 				continue;
-			String[] tokens = TokenizerSingleton.getInstance().tokenize(sentence);
+			String[] tokens = TokenizerMESingleton.getInstance().tokenize(sentence);
 
 			BioSpan[] spans = matching.tagging(tokens, -1, true);
 			String annotated = BioSpan.getStringNameSample(spans, tokens);

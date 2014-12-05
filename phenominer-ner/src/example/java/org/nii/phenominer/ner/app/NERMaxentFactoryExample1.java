@@ -8,7 +8,7 @@ import org.nii.phenominer.ner.app.NERMaxentFactory;
 import org.nii.phenominer.ner.features.JeniaFeatureGenerator;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 import opennlp.tools.dictionary.Dictionary;
@@ -32,7 +32,7 @@ public class NERMaxentFactoryExample1 {
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 		String line = new String();
 		while ((line = in.readLine()) != null) {
-			dict.put(new StringList(TokenizerSingleton.getInstance().tokenize(line)));
+			dict.put(new StringList(TokenizerMESingleton.getInstance().tokenize(line)));
 		}
 		in.close();
 		return dict;

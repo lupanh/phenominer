@@ -10,7 +10,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.apache.commons.lang3.StringUtils;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.nii.phenominer.nlp.tools.bllipparser.BllipParserServer;
 import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 import org.restlet.Application;
@@ -23,8 +24,6 @@ import org.restlet.data.Protocol;
 import org.restlet.routing.Router;
 
 import com.jmcejuela.bio.jenia.common.Sentence;
-
-import edu.stanford.nlp.util.StringUtils;
 
 public class NLPToolsWebService extends Application {
 	static BllipParserServer bllipparser;
@@ -75,7 +74,7 @@ public class NLPToolsWebService extends Application {
 				"/home/bllip-parser/biomodel/parser", "/home/bllip-parser/biomodel/reranker");
 		Jenia.setModelsPath("models/genia");
 		annotater = new OntologyAnnotator("test/ontologyMatcher.txt");
-		tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
+		tokenizer = TokenizerMESingleton.getInstance().createTokenizerModel();
 	}
 
 	private static void init(String bllipHome, String firstStageModelPath,
@@ -84,7 +83,7 @@ public class NLPToolsWebService extends Application {
 		Jenia.setModelsPath("models/genia");
 		if (ontologiesListPath != null)
 			annotater = new OntologyAnnotator(ontologiesListPath);
-		tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
+		tokenizer = TokenizerMESingleton.getInstance().createTokenizerModel();
 	}
 
 	public static void main(String[] args) throws Exception {

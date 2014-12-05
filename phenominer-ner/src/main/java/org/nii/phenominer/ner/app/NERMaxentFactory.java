@@ -18,9 +18,9 @@ import opennlp.tools.util.Span;
 import opennlp.tools.util.eval.FMeasure;
 import opennlp.tools.util.featuregen.AdaptiveFeatureGenerator;
 
+import org.nii.phenominer.nlp.data.BioSpan;
 import org.nii.phenominer.nlp.eval.ApproximateFMeasure;
 import org.nii.phenominer.nlp.eval.NameFinderApproximateEvaluator;
-import org.nii.phenominer.nlp.matching.BioSpan;
 
 public class NERMaxentFactory {
 	AdaptiveFeatureGenerator featureGenerator;

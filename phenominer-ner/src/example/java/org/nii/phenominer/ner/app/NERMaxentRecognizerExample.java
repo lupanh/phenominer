@@ -22,7 +22,7 @@ import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 import org.nii.phenominer.ner.features.JeniaFeatureGenerator;
 import org.nii.phenominer.ner.features.NgramTokenFeatureGenerator;
 import org.nii.phenominer.ner.features.WordLengthFeatureGenerator;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.nii.phenominer.nlp.tools.jeniatagger.Jenia;
 
 public class NERMaxentRecognizerExample {
@@ -32,7 +32,7 @@ public class NERMaxentRecognizerExample {
 				"UTF-8"));
 		String line = new String();
 		while ((line = in.readLine()) != null) {
-			dict.put(new StringList(TokenizerSingleton.getInstance().tokenize(line)));
+			dict.put(new StringList(TokenizerMESingleton.getInstance().tokenize(line)));
 		}
 		in.close();
 		return dict;
@@ -79,7 +79,7 @@ public class NERMaxentRecognizerExample {
 			if (text.equals("exit")) {
 				break;
 			}
-			String[] tokens = TokenizerSingleton.getInstance().tokenize(text);
+			String[] tokens = TokenizerMESingleton.getInstance().tokenize(text);
 			String output = nerFinder.recognize(tokens);
 			System.out.println(output);
 			System.out.print("Enter your sentence: ");

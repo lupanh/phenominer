@@ -20,7 +20,7 @@ public class Tokenizer {
 	public TokenizerME createTokenizerModel() {
 		try {
 			AbstractModel model = new BinaryGISModelReader(new DataInputStream(new FileInputStream(
-					modelTokenizer))).getModel();
+					getClass().getClassLoader().getResource(modelTokenizer).getFile()))).getModel();
 			TokenizerModel tokenizerModel = new TokenizerModel(model, null, new TokenizerFactory(
 					"en", null, true, null));
 			return new TokenizerME(tokenizerModel);

@@ -4,8 +4,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import org.nii.phenominer.nlp.matching.BioSpan;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.data.BioSpan;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 
 import opennlp.tools.namefind.NameFinderME;
 import opennlp.tools.namefind.TokenNameFinderModel;
@@ -49,7 +49,7 @@ public class NERMaxentRecognizer {
 			if (text.equals("exit")) {
 				break;
 			}
-			String[] tokens = TokenizerSingleton.getInstance().tokenize(text);
+			String[] tokens = TokenizerMESingleton.getInstance().tokenize(text);
 			String output = nerFinder.recognize(tokens);
 			System.out.println(output);
 			System.out.print("Enter your sentence: ");

@@ -13,13 +13,14 @@ import java.util.Set;
 
 import opennlp.tools.tokenize.TokenizerME;
 
+import org.apache.commons.lang3.StringUtils;
 import org.boon.json.JsonSerializer;
 import org.boon.json.JsonSerializerFactory;
-import org.nii.phenominer.nlp.data.Annotation;
+import org.nii.phenominer.nlp.data.BioSpan;
+import org.nii.phenominer.nlp.data.TextAnnotation;
 import org.nii.phenominer.nlp.data.Text;
-import org.nii.phenominer.nlp.matching.BioSpan;
-import org.nii.phenominer.nlp.matching.LongestMatching;
-import org.nii.phenominer.nlp.tokenizer.TokenizerSingleton;
+import org.nii.phenominer.nlp.matcher.LongestMatching;
+import org.nii.phenominer.nlp.tokenizer.TokenizerMESingleton;
 import org.obolibrary.oboformat.model.Clause;
 import org.obolibrary.oboformat.model.Frame;
 import org.obolibrary.oboformat.model.OBODoc;
@@ -29,8 +30,6 @@ import org.obolibrary.oboformat.parser.OBOFormatParser;
 import com.cedarsoftware.util.io.JsonWriter;
 import com.thoughtworks.xstream.XStream;
 
-import edu.stanford.nlp.util.StringUtils;
-
 public class OntologyAnnotator {
 	List<LongestMatching> matchers = new ArrayList<LongestMatching>();
 	JsonSerializer serializer;
@@ -39,7 +38,7 @@ public class OntologyAnnotator {
 	void init() {
 		xstream = new XStream();
 		xstream.alias("document", Text.class);
-		xstream.alias("annotation", Annotation.class);
+		xstream.alias("annotation", TextAnnotation.class);
 		serializer = new JsonSerializerFactory().create();
 	}
 	
@@ -151,7 +150,7 @@ public class OntologyAnnotator {
 			String[] fields = span.getType().split("\\|");
 			int start = span.getStartOffset(tokens);
 			int end = span.getEndOffset(tokens);
-			Annotation annotation = new Annotation(text.substring(start, end), span.getStart(),
+			TextAnnotation annotation = new TextAnnotation(text.substring(start, end), span.getStart(),
 					span.getEnd(), span.getStartOffset(tokens), span.getEndOffset(tokens),
 					fields[0], fields[1]);
 			doc.addAnnotations(annotation);
@@ -173,7 +172,7 @@ public class OntologyAnnotator {
 
 	public static void main(String[] args) throws Exception {
 		boolean isTokenized = false;
-		TokenizerME tokenizer = TokenizerSingleton.getInstance().createTokenizerModel();
+		TokenizerME tokenizer = TokenizerMESingleton.getInstance().createTokenizerModel();
 		OntologyAnnotator annotater = new OntologyAnnotator("test/ontologyMatcher.txt");
 		String text = "Autosomal dominant inheritance";
 		String[] tokens;
